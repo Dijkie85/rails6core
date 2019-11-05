@@ -3,8 +3,8 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import JQuery from 'jquery';
-window.$ = window.JQuery = JQuery;
+//import JQuery from 'jquery'; Unneeded because of global init in webpack/enviroments.js
+//window.$ = window.JQuery = JQuery;
 
 import "bootstrap";
 
@@ -26,3 +26,7 @@ $(function () {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+document.addEventListener("turbolinks:load", () => {
+  $('[data-toggle="tooltip"]').tooltip()
+})
